@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-import hl.util.ftp.AWS_SFTPClient;
 import hl.util.ftp.FTPClient;
 import hl.util.ftp.FTPnClient;
 import hl.util.ftp.SFTPClient;
@@ -32,8 +31,6 @@ public class FTPFactory {
 			ftpClient = new FTPnClient();
 		else if(clientType.equals(FTPClientType.SFTP))
 			ftpClient = new SFTPClient();
-		else if(clientType.equals(FTPClientType.AWS_SFTP))
-			ftpClient = new AWS_SFTPClient();
 		
 		System.out.println("ftpClient: "+ftpClient);
 		ftpClient.setHOSTNAME(getProperties("ftphostdetails.properties").getProperty("hostname"));
